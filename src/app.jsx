@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styles from './app.module.css';
-import Header from './components/header/header';
 import Login from './components/login/login';
-import Main from './components/main/main';
+import MainPage from './components/main_page/main_page';
 
-function App({ authService }) {
+function App({ authService, movieService }) {
 	return (
 		<div className={styles.app}>
 			<BrowserRouter>
@@ -13,7 +12,7 @@ function App({ authService }) {
 						<Login authService={authService} />
 					</Route>
 					<Route exact path="/main">
-						<Main authService={authService} />
+						<MainPage authService={authService} movieService={movieService} />
 					</Route>
 				</Switch>
 			</BrowserRouter>
