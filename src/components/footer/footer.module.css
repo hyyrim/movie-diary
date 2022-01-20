@@ -1,0 +1,30 @@
+@value makerGreen,makerWhite,makerBlack from '../../common/colors.css';
+
+.footer {
+	width: 100%;
+	padding: 0.5em;
+	background-color: makerGreen;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.name,
+.icon {
+	color: makerWhite;
+}
+
+.name {
+	font-size: 1.2em;
+}
+
+.icon {
+	font-size: 2em;
+	margin-left: 0.2em;
+	transition: color 200ms ease-in;
+}
+
+.icon:hover {
+	color: makerBlack;
+}
