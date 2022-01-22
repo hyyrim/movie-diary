@@ -4,3 +4,29 @@
 	flex-basis: 50%;
 	border-right: 1px solid makerLightGrey;
 }
+
+.title {
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+.form {
+	display: flex;
+	margin: 0em 1.2em;
+}
+
+.input {
+	flex: 1 1 89%;
+	font-size: 1.2rem;
+	padding: 0.2em;
+	outline: 0;
+}
+
+.button {
+	cursor: pointer;
+	flex: 1 1 10%;
+}
+
+.container {
+	margin: 2em 1.2em;
+}

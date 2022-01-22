@@ -3,8 +3,7 @@
 .movie {
 	width: 100%;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
 	margin-bottom: 0.8em;
 	border: 1px solid makerLightGrey;
 	box-shadow: 6px 6px 8px 0px makerShadow;
@@ -16,23 +15,36 @@
 	background: makerLightPink;
 }
 
-.rank {
-	flex: 1 1 30%;
-	display: flex;
-	justify-content: center;
-	font-size: 1.5rem;
-	font-weight: bold;
+.title,
+.info {
+	padding: 0 1.2em;
+}
+
+.nameKR,
+.nameENG {
+	margin: 0;
+}
+
+.nameKR {
+	margin-top: 1.02em;
+}
+
+.nameENG {
+	margin-top: 0.4em;
+	color: makerGrey;
 }
 
 .info {
-	flex: 1 1 70%;
+	width: 100%;
+	display: flex;
+	font-size: 0.92rem;
 }
 
-.name {
-	font-size: 1.2rem;
-}
-
-.openDate {
-	font-size: 0.8rem;
-	color: makerGrey;
+.nation::before,
+.genre::before,
+.director::before {
+	content: '|';
+	display: inline;
+	color: makerLightGrey;
+	padding: 0 0.8em;
 }

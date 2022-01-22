@@ -37,16 +37,22 @@ const MainPage = ({ authService, movieService }) => {
 	});
 
 	useEffect(() => {
-		movieService
-			.setMovies() //
+		movieService //
+			.setMovies()
 			.then((movies) => setMovies(movies));
 	}, []);
+
+	const onSearch = (movieName) => {
+		movieService //
+			.searchMovie(movieName)
+			.then((movies) => setMovies(movies));
+	};
 
 	return (
 		<section className={styles.main}>
 			<Header onLogout={onLogout} />
 			<div className={styles.container}>
-				<SearchMovie movies={movies} />
+				<SearchMovie movies={movies} onSearch={onSearch} />
 				<Diary posts={posts} />
 			</div>
 			<Footer />

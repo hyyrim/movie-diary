@@ -7,9 +7,23 @@ class MovieService {
 	}
 
 	async setMovies() {
+		const date = this.getFormatDate();
 		try {
 			const response = await fetch(
-				'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=eeec1e9ef0a30f1b9308c36df12d7e0c&movieNm=아이언맨',
+				`http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=${process.env.REACT_APP_MOVIE_API_KEY}&targetDt=${date}`,
+				this.requestOptions
+			);
+			const result_1 = await response.json();
+			return result_1.boxOfficeResult.dailyBoxOfficeList;
+		} catch (error) {
+			return console.log('error', error);
+		}
+	}
+
+	async searchMovie(movieName) {
+		try {
+			const response = await fetch(
+				`http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${process.env.REACT_APP_MOVIE_API_KEY}&movieNm=${movieName}`,
 				this.requestOptions
 			);
 			const result_1 = await response.json();
@@ -17,6 +31,15 @@ class MovieService {
 		} catch (error) {
 			return console.log('error', error);
 		}
+	}
+
+	getFormatDate() {
+		const date = new Date();
+		const year = date.getFullYear(); // yyyy
+		let month = date.getMonth() + 1;
+		month = month >= 10 ? month : '0' + month;
+		const day = date.getDate() - 1;
+		return year + month + day;
 	}
 }
 
