@@ -9,7 +9,7 @@ class MovieService {
 	async setMovies() {
 		try {
 			const response = await fetch(
-				'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=eeec1e9ef0a30f1b9308c36df12d7e0c&movieNm=아이언맨',
+				'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=&movieNm=아이언맨',
 				this.requestOptions
 			);
 			const result_1 = await response.json();
