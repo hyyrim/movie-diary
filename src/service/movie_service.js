@@ -24,6 +24,7 @@ class MovieService {
 		try {
 			const response = await fetch(
 				`http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=${process.env.REACT_APP_MOVIE_API_KEY}&movieNm=${movieName}`,
+
 				this.requestOptions
 			);
 			const result_1 = await response.json();
