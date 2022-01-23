@@ -36,8 +36,18 @@
 
 .info {
 	width: 100%;
+	margin: 0.8em 0 1em 0;
 	display: flex;
+	flex-wrap: wrap;
 	font-size: 0.92rem;
+}
+
+.year,
+.nation,
+.genre,
+.director {
+	margin: 0;
+	padding-top: 0.2em;
 }
 
 .nation::before,

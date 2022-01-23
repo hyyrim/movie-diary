@@ -1,9 +1,12 @@
 import React from 'react';
 import styles from './movie_result.module.css';
 
-const MovieResult = ({ movie }) => {
+const MovieResult = ({ movie, onMovieClick }) => {
+	const handleMovieClick = () => {
+		onMovieClick(movie);
+	};
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} onClick={handleMovieClick}>
 			<div className={styles.movie}>
 				<div className={styles.title}>
 					<h1 className={styles.nameKR}>{movie.movieNm}</h1>

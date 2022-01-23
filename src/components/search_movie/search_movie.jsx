@@ -4,7 +4,7 @@ import { GrFormRefresh, GrSearch } from 'react-icons/gr';
 import styles from './search_movie.module.css';
 import MovieResult from '../movie_result/movie_result';
 
-const SearchMovie = ({ movies, onSearch }) => {
+const SearchMovie = ({ movies, onSearch, onMovieClick }) => {
 	const inputRef = useRef();
 
 	const onSubmit = (e) => {
@@ -33,7 +33,13 @@ const SearchMovie = ({ movies, onSearch }) => {
 					if (movie.rank) {
 						return <Movie key={movie.movieCd} movie={movie} />;
 					} else if (movie) {
-						return <MovieResult key={movie.movieCd} movie={movie} />;
+						return (
+							<MovieResult
+								key={movie.movieCd}
+								movie={movie}
+								onMovieClick={onMovieClick}
+							/>
+						);
 					}
 				})}
 			</div>
