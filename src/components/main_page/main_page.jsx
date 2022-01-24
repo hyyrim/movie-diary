@@ -80,6 +80,15 @@ const MainPage = ({ authService, movieService }) => {
 		setSelectedMovie(movie);
 	};
 
+	const onAdd = (post) => {
+		setPosts((posts) => {
+			const updated = { ...posts };
+			updated[post.id] = post;
+			return updated;
+		});
+		setSelectedMovie(null);
+	};
+
 	const onUpdate = (post) => {
 		setPosts((posts) => {
 			const updated = { ...posts };
@@ -108,6 +117,7 @@ const MainPage = ({ authService, movieService }) => {
 				<Diary
 					posts={posts}
 					movie={selectedMovie}
+					onAdd={onAdd}
 					onUpdate={onUpdate}
 					onDelete={onDelete}
 				/>

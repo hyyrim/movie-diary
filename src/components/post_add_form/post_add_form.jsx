@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './post_add_form.module.css';
@@ -6,15 +6,7 @@ import styles from './post_add_form.module.css';
 const DEFAULT_IMAGE = '/images/default-movie.png';
 
 const PostAddForm = ({ movie, onAdd }) => {
-	if (!movie) {
-		return null;
-	}
-	const title = movie.movieNm;
-	const year = movie.prdtYear || '';
-	const nation = movie.nationAlt || '';
-	const genre = movie.genreAlt || '';
-	const director = movie.directors[0] ? movie.directors[0].peopleNm : '';
-
+	const textareaRef = useRef();
 	const getFormatDate = () => {
 		const date = new Date();
 		const year = date.getFullYear(); // yyyy
@@ -24,8 +16,34 @@ const PostAddForm = ({ movie, onAdd }) => {
 		return year + '.' + month + '.' + day;
 	};
 
-	const onChange = () => {
-		console.log(onChange);
+	if (!movie) {
+		return null;
+	}
+	const title = movie.movieNm;
+	const year = movie.prdtYear || '';
+	const nation = movie.nationAlt || '';
+	const genre = movie.genreAlt || '';
+	const director = movie.directors[0] ? movie.directors[0].peopleNm : '';
+	const date = getFormatDate();
+
+	const onClick = () => {
+		const content = textareaRef.current.value;
+		if (content == '') {
+			alert('내용을 입력해주세요.');
+		}
+
+		const post = {
+			id: Date.now(),
+			date: date,
+			movieNm: title,
+			prdtYear: year,
+			nationAlt: nation,
+			genreAlt: genre,
+			directors: director,
+			content: content,
+		};
+		onAdd(post);
+		textareaRef.current.value = '';
 	};
 
 	return (
@@ -49,10 +67,10 @@ const PostAddForm = ({ movie, onAdd }) => {
 						<h1 className={styles.movieNm}>{title}</h1>
 						<textarea
 							className={styles.content}
+							ref={textareaRef}
 							name="content"
 							maxLength="500"
 							placeholder="내용을 입력하세요."
-							onChange={onChange}
 						></textarea>
 					</div>
 				</div>
@@ -60,7 +78,7 @@ const PostAddForm = ({ movie, onAdd }) => {
 					<div className={styles.fileInput}>
 						<ImageFileInput />
 					</div>
-					<Button name="Add" />
+					<Button name="Add" onClick={onClick} />
 				</div>
 			</div>
 		</li>
