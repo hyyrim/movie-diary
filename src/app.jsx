@@ -3,7 +3,7 @@ import styles from './app.module.css';
 import Login from './components/login/login';
 import MainPage from './components/main_page/main_page';
 
-function App({ authService, movieService, imageService }) {
+function App({ authService, movieService, imageService, database }) {
 	return (
 		<div className={styles.app}>
 			<BrowserRouter>
@@ -16,6 +16,7 @@ function App({ authService, movieService, imageService }) {
 							authService={authService}
 							movieService={movieService}
 							imageService={imageService}
+							database={database}
 						/>
 					</Route>
 				</Switch>

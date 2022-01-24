@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Movie from '../movie/movie';
 import { GrFormRefresh, GrSearch } from 'react-icons/gr';
 import styles from './search_movie.module.css';
@@ -6,6 +6,7 @@ import MovieResult from '../movie_result/movie_result';
 
 const SearchMovie = ({ movies, onSearch, onMovieClick }) => {
 	const inputRef = useRef();
+	const [loading, setLoading] = useState(false);
 
 	const onSubmit = (e) => {
 		e.preventDefault();
