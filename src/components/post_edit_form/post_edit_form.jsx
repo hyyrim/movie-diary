@@ -5,8 +5,8 @@ import styles from './post_edit_form.module.css';
 
 const DEFAULT_IMAGE = '/images/default-movie.png';
 
-const PostEditForm = ({ post, onUpdate, onDelete }) => {
-	const poster = post.fileURL || DEFAULT_IMAGE;
+const PostEditForm = ({ post, onUpdate, onDelete, imageService }) => {
+	const url = post.fileURL || DEFAULT_IMAGE;
 	const textareaRef = useRef();
 
 	const onClick = () => {
@@ -22,13 +22,20 @@ const PostEditForm = ({ post, onUpdate, onDelete }) => {
 		onUpdate(eidtedPost);
 	};
 
+	const onFileChange = (url) => {
+		onUpdate({
+			...post,
+			fileURL: url,
+		});
+	};
+
 	return (
 		<li className={styles.post}>
 			<p className={styles.date}>{post.date}</p>
 			<div className={styles.container_button}>
 				<div className={styles.container}>
 					<div className={styles.poster_info}>
-						<img className={styles.poster} src={poster} alt="default-poster" />
+						<img className={styles.poster} src={url} alt="default-poster" />
 						<div className={styles.info}>
 							<p className={styles.year}>{post.prdtYear}</p>
 							<p className={styles.nation}>{post.nationAlt}</p>
@@ -50,7 +57,10 @@ const PostEditForm = ({ post, onUpdate, onDelete }) => {
 				</div>
 				<div className={styles.buttons}>
 					<div className={styles.fileInput}>
-						<ImageFileInput />
+						<ImageFileInput
+							imageService={imageService}
+							onFileChange={onFileChange}
+						/>
 					</div>
 					<Button name="Delete" onClick={onClick} />
 				</div>

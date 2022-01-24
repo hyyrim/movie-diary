@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './post_add_form.module.css';
 
 const DEFAULT_IMAGE = '/images/default-movie.png';
 
-const PostAddForm = ({ movie, onAdd }) => {
+const PostAddForm = ({ movie, onAdd, imageService }) => {
+	const [url, setURL] = useState(null);
+	const posterURL = url || DEFAULT_IMAGE;
 	const textareaRef = useRef();
 	const getFormatDate = () => {
 		const date = new Date();
@@ -26,6 +28,10 @@ const PostAddForm = ({ movie, onAdd }) => {
 	const director = movie.directors[0] ? movie.directors[0].peopleNm : '';
 	const date = getFormatDate();
 
+	const onFileChange = (url) => {
+		setURL(url);
+	};
+
 	const onClick = () => {
 		const content = textareaRef.current.value;
 		if (content == '') {
@@ -41,9 +47,11 @@ const PostAddForm = ({ movie, onAdd }) => {
 			genreAlt: genre,
 			directors: director,
 			content: content,
+			fileURL: url,
 		};
-		onAdd(post);
 		textareaRef.current.value = '';
+		setURL(null);
+		onAdd(post);
 	};
 
 	return (
@@ -53,7 +61,7 @@ const PostAddForm = ({ movie, onAdd }) => {
 					<div className={styles.poster_info}>
 						<img
 							className={styles.poster}
-							src={DEFAULT_IMAGE}
+							src={posterURL}
 							alt="default-poster"
 						/>
 						<div className={styles.info}>
@@ -76,7 +84,10 @@ const PostAddForm = ({ movie, onAdd }) => {
 				</div>
 				<div className={styles.buttons}>
 					<div className={styles.fileInput}>
-						<ImageFileInput />
+						<ImageFileInput
+							imageService={imageService}
+							onFileChange={onFileChange}
+						/>
 					</div>
 					<Button name="Add" onClick={onClick} />
 				</div>

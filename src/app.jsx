@@ -3,7 +3,7 @@ import styles from './app.module.css';
 import Login from './components/login/login';
 import MainPage from './components/main_page/main_page';
 
-function App({ authService, movieService }) {
+function App({ authService, movieService, imageService }) {
 	return (
 		<div className={styles.app}>
 			<BrowserRouter>
@@ -12,7 +12,11 @@ function App({ authService, movieService }) {
 						<Login authService={authService} />
 					</Route>
 					<Route exact path="/main">
-						<MainPage authService={authService} movieService={movieService} />
+						<MainPage
+							authService={authService}
+							movieService={movieService}
+							imageService={imageService}
+						/>
 					</Route>
 				</Switch>
 			</BrowserRouter>
