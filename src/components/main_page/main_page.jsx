@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import styles from './main_page.module.css';
@@ -14,9 +14,9 @@ const MainPage = ({ authService, movieService, imageService, database }) => {
 	const [posts, setPosts] = useState({});
 	const [userId, setUserId] = useState(historyState && historyState.id);
 
-	const onLogout = () => {
+	const onLogout = useCallback(() => {
 		authService.logout();
-	};
+	}, [authService]);
 
 	// 다이어리 불러오기
 
@@ -39,14 +39,14 @@ const MainPage = ({ authService, movieService, imageService, database }) => {
 				history.push('/');
 			}
 		});
-	});
+	}, [authService]);
 
 	// 영화 검색
 	useEffect(() => {
 		movieService //
 			.setMovies()
 			.then((movies) => setMovies(movies));
-	}, []);
+	}, [movieService]);
 
 	const onSearch = (movieName) => {
 		movieService //
