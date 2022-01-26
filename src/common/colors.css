@@ -8,3 +8,11 @@
 @value makerShadow: rgba(217, 217, 217, 1);
 @value makerColorful: linear-gradient(166deg, rgba(237, 193, 211, 1) 0%,rgba(212, 149, 161, 1) 60%, rgba(162, 63, 63, 1) 100%, rgba(127, 188, 242, 1) 100%);
 @value makerWheat: wheat;
+
+@value primary: #fafafa;
+@value primaryDark: #c7c7c7;
+@value secondary: #e8eaf6;
+@value secondaryDark: #b6b8c3;
+@value text: #37474f;
+@value select: #ef9a9a;
+/* @value primary,text,secondary,secondaryDark from '../../common/colors.css'; */

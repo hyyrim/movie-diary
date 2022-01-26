@@ -1,8 +1,9 @@
-@value makerLightGrey from '../../common/colors.css';
+@value makerLightGrey,makerGrey,primary,primaryDark,text,secondary,secondaryDark from '../../common/colors.css';
 
 .movie_section {
 	flex-basis: 50%;
 	border-right: 1px solid makerLightGrey;
+	overflow-y: auto;
 }
 
 .title {
@@ -20,11 +21,15 @@
 	font-size: 1.2rem;
 	padding: 0.2em;
 	outline: 0;
+	border: 1px solid makerLightGrey;
 }
 
 .button {
 	cursor: pointer;
 	flex: 1 1 10%;
+	border: 0;
+	background-color: makerLightGrey;
+	border-radius: 0 0.2em 0.2em 0;
 }
 
 .container {

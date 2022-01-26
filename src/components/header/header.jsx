@@ -9,7 +9,7 @@ const Header = memo(({ onLogout }) => (
 			</button>
 		)}
 		<img className={styles.logo} src="/images/logo.png" alt="logo" />
-		<h1 className={styles.title}>Movie Diary</h1>
+		<h1 className={styles.title}>Moviary</h1>
 	</header>
 ));
 

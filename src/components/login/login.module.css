@@ -1,4 +1,4 @@
-@value makerGreen,makerWhite,makerBlack,makerLightPink from '../../common/colors.css';
+@value makerWhite,primary,text,secondary,secondaryDark from '../../common/colors.css';
 
 .login {
 	width: 35em;
@@ -6,6 +6,10 @@
 	text-align: center;
 	flex-direction: column;
 	background-color: makerWhite;
+}
+
+.title {
+	color: text;
 }
 
 .list {
@@ -21,16 +25,17 @@
 }
 
 .button {
-	width: 100%;
+	width: 50%;
 	height: 2.5em;
+	color: text;
 	font-size: 1.2rem;
 	border-radius: 1.2rem;
 	background-color: transparent;
 	cursor: pointer;
-	border: 0.2rem solid makerGreen;
+	border: 0.2rem solid secondaryDark;
 	outline: 0;
 }
 
 .button:hover {
-	background-color: makerLightPink;
+	background-color: secondary;
 }

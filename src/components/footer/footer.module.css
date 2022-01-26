@@ -1,9 +1,9 @@
-@value makerGreen,makerWhite,makerBlack from '../../common/colors.css';
+@value primary,text,secondary,secondaryDark from '../../common/colors.css';
 
 .footer {
 	width: 100%;
-	padding: 0.5em;
-	background-color: makerGreen;
+	padding: 0.8em;
+	background-color: primary;
 
 	display: flex;
 	justify-content: center;
@@ -12,7 +12,7 @@
 
 .name,
 .icon {
-	color: makerWhite;
+	color: text;
 }
 
 .name {
@@ -26,5 +26,5 @@
 }
 
 .icon:hover {
-	color: makerBlack;
+	opacity: 0.8;
 }

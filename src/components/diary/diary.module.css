@@ -1,10 +1,18 @@
 .diary {
 	flex-basis: 50%;
+	overflow-y: auto;
 }
 
-.title {
-	text-align: center;
-	font-size: 1.4rem;
+.title_image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.image {
+	width: 3em;
+	height: 3em;
+	margin: 1.6em 0;
 }
 
 .posts {

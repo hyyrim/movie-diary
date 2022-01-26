@@ -2,7 +2,10 @@ import React from 'react';
 import styles from './button.module.css';
 
 const Button = ({ name, onClick }) => (
-	<button className={styles.button} onClick={onClick}>
+	<button
+		className={`${styles.button} ${name === 'Delete' ? styles.delete : ''}`}
+		onClick={onClick}
+	>
 		{name}
 	</button>
 );

@@ -1,18 +1,22 @@
 import React, { useRef, useState } from 'react';
 import Movie from '../movie/movie';
-import { GrFormRefresh, GrSearch } from 'react-icons/gr';
+import { GrSearch } from 'react-icons/gr';
 import styles from './search_movie.module.css';
 import MovieResult from '../movie_result/movie_result';
 
-const SearchMovie = ({ movies, onSearch, onMovieClick }) => {
+const SearchMovie = ({ movies, onSearch, onMovieClick, selectedMovie }) => {
 	const inputRef = useRef();
-	const [loading, setLoading] = useState(false);
+	const [selected, setSelected] = useState(null);
 
 	const onSubmit = (e) => {
 		e.preventDefault();
 		const value = inputRef.current.value;
 		value && onSearch(value);
 		inputRef.current.value = '';
+	};
+
+	const onSelect = (cd) => {
+		setSelected(cd);
 	};
 
 	return (
@@ -39,6 +43,8 @@ const SearchMovie = ({ movies, onSearch, onMovieClick }) => {
 								key={movie.movieCd}
 								movie={movie}
 								onMovieClick={onMovieClick}
+								onSelect={onSelect}
+								selected={selected}
 							/>
 						);
 					}

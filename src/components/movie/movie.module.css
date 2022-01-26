@@ -1,4 +1,4 @@
-@value makerLightPink, makerLightGrey, makerGrey, makerShadow from '../../common/colors.css';
+@value secondary, text,makerLightGrey, makerGrey, makerShadow from '../../common/colors.css';
 
 .movie {
 	width: 100%;
@@ -13,7 +13,7 @@
 
 .movie:hover {
 	transform: scale(1.02);
-	background: makerLightPink;
+	background: secondary;
 }
 
 .rank {
@@ -22,6 +22,7 @@
 	justify-content: center;
 	font-size: 1.5rem;
 	font-weight: bold;
+	color: text;
 }
 
 .info {

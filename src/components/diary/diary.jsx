@@ -6,7 +6,9 @@ import styles from './diary.module.css';
 const Diary = ({ posts, movie, onAdd, onUpdate, onDelete, imageService }) => {
 	return (
 		<section className={styles.diary}>
-			<h1 className={styles.title}>Diary</h1>
+			<div className={styles.title_image}>
+				<img className={styles.image} src="/images/diary.png" alt="diary" />
+			</div>
 			<ul className={styles.posts}>
 				<PostAddForm imageService={imageService} movie={movie} onAdd={onAdd} />
 				{Object.keys(posts)

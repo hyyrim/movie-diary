@@ -1,4 +1,4 @@
-@value makerLightPink, makerLightGrey, makerGrey, makerShadow from '../../common/colors.css';
+@value makerLightPink, makerLightGrey, makerGrey, makerShadow,primary,text,secondary,secondaryDark,select from '../../common/colors.css';
 
 .movie {
 	width: 100%;
@@ -10,9 +10,13 @@
 	transition: transform 200ms ease-in;
 }
 
+.movie.selected {
+	border: 2px solid secondaryDark;
+}
+
 .movie:hover {
 	transform: scale(1.02);
-	background: makerLightPink;
+	background: secondary;
 }
 
 .title,

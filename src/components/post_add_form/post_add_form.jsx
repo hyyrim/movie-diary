@@ -36,6 +36,7 @@ const PostAddForm = ({ movie, onAdd, imageService }) => {
 		const content = textareaRef.current.value;
 		if (content == '') {
 			alert('내용을 입력해주세요.');
+			return;
 		}
 
 		const post = {
