@@ -1,7 +1,11 @@
 # Moviary
 
+<br>
+
 **미리보기**
 ![moviary](https://user-images.githubusercontent.com/84282163/151801478-2af3083c-1cd4-498a-84e1-d94a27ac9389.gif)
+
+<br>
 
 ### 🔗 배포주소
 
