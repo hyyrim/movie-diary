@@ -7,7 +7,7 @@
 
 <br>
 
-### 🔗 배포주소
+### 🔗 배포 주소
 
 https://moviary.netlify.app
 
