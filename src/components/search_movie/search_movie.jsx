@@ -34,6 +34,9 @@ const SearchMovie = ({ movies, onSearch, onMovieClick, selectedMovie }) => {
 				</button>
 			</form>
 			<div className={styles.container}>
+				{movies.length <= 0 && (
+					<p className={styles.result}>검색 결과가 존재하지 않습니다.</p>
+				)}
 				{movies.map((movie) => {
 					if (movie.rank) {
 						return <Movie key={movie.movieCd} movie={movie} />;

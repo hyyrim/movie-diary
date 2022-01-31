@@ -35,3 +35,8 @@
 .container {
 	margin: 2em 1.2em;
 }
+
+.result {
+	display: flex;
+	justify-content: center;
+}

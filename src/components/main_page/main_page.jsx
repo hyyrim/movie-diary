@@ -24,6 +24,7 @@ const MainPage = ({ authService, movieService, imageService, database }) => {
 		if (!userId) {
 			return;
 		}
+
 		const stopSync = database.syncDiary(userId, (posts) => {
 			setPosts(posts);
 		});
